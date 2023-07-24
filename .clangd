@@ -1,5 +1,6 @@
 CompileFlags:
   Add: [-Wunused-parameter]
+  CompilationDatabase: build/
   Compiler: clang++
 
 Diagnostics:
