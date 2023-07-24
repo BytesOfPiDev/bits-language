@@ -1,0 +1,14 @@
+CompileFlags:
+  Add: [-Wunused-parameter]
+  Compiler: clang++
+
+Diagnostics:
+  UnusedIncludes: Strict
+  ClangTidy:
+    Add: [modernize*, cppcoreguidelines-*, performance-*, bugprone-*]
+
+InlayHints:
+  Enabled: Yes
+  Designators: Yes
+  ParameterNames: Yes
+  DeducedTypes: Yes
