@@ -1,8 +1,7 @@
 #pragma once
 
-#include "common.hpp"
-#include "memory.h"
 #include "value.hpp"
+#include <common.hpp>
 
 #include <cstdint>
 #include <vector>
