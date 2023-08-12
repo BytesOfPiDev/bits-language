@@ -40,8 +40,14 @@ target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}.core)
 target_include_directories(${PROJECT_NAME}.core PUBLIC include)
 target_sources(
     ${PROJECT_NAME}.core
-    PRIVATE include/chunk.hpp include/value.hpp src/chunk.cpp src/debug.hpp
-            src/debug.cpp src/value.cpp)
+    PRIVATE include/chunk.hpp
+            include/value.hpp
+            src/chunk.cpp
+            src/debug.hpp
+            src/debug.cpp
+            src/value.cpp
+            src/virtualmachine.cpp
+            src/virtualmachine.hpp)
 
 # ##############################################################################
 

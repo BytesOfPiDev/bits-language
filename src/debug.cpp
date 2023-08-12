@@ -24,7 +24,7 @@ void DisassembleChunk(bits::Chunk &chunk, std::string_view name)
 static auto ConstantInstruction(std::string_view name, bits::Chunk &chunk, int offset) -> int
 {
     auto constant = static_cast<uint8_t>(chunk.m_byteCode[offset + 1]);
-    std::cout << std::format("{:15} [{}] '", name.data(), constant);
+    std::cout << std::format("{:15} [{}] ", name.data(), constant);
     PrintValue(chunk.m_constants[constant]);
     return offset + 2;
 }
@@ -54,6 +54,16 @@ auto DisassembleInstruction(bits::Chunk &chunk, int offset) -> int
     {
     case OpCode::OpConstant:
         return ConstantInstruction("OP_CONSTANT", chunk, offset);
+    case OpCode::OpAdd:
+        return SimpleInstruction("OP_ADD", offset);
+    case OpCode::OpSubtract:
+        return SimpleInstruction("OP_SUBTRACT", offset);
+    case OpCode::OpMultiply:
+        return SimpleInstruction("OP_MULTIPLY", offset);
+    case OpCode::OpDivide:
+        return SimpleInstruction("OP_DIVIDE", offset);
+    case OpCode::OpNegate:
+        return SimpleInstruction("OP_NEGATE", offset);
     case OpCode::OpReturn:
         return SimpleInstruction("OP_RETURN", offset);
     default:

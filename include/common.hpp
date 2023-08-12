@@ -1,5 +1,3 @@
 #pragma once
 
-namespace bits
-{
-}
+static constexpr bool DebugTraceExecution = true;

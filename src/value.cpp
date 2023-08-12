@@ -7,7 +7,7 @@ namespace bits
 
 void PrintValue(Value value)
 {
-    std::cout << value << "'";
+    std::cout << "'" << value << "'";
 }
 
 } // namespace bits

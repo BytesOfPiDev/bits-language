@@ -1,7 +1,7 @@
 #pragma once
 
+#include "common.hpp"
 #include "value.hpp"
-#include <common.hpp>
 
 #include <cstdint>
 #include <vector>
@@ -9,12 +9,20 @@
 namespace bits
 {
 
+//! @brief The supported bytecode instructions.
 enum class OpCode : uint8_t
 {
+    OpConstant,
+    OpAdd,
+    OpSubtract,
+    OpMultiply,
+    OpDivide,
+    OpNegate,
     OpReturn,
-    OpConstant
 };
 
+//! Stores a series of btyecode instructions.
+//! @note Not every element is an instruction (@see OpCode), some are data/operands.
 using ByteCodeContainer = std::vector<OpCode>;
 
 struct Chunk
