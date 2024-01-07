@@ -13,7 +13,7 @@ constexpr auto DefaultWidth = 16;
 
 void DisassembleChunk(bits::Chunk &chunk, std::string_view name)
 {
-    std::cout << "== " << name << " ==" << std::endl;
+    std::cout << "== " << name << " ==" << '\n';
 
     for (int offset = 0; offset < chunk.m_byteCode.size();)
     {
@@ -31,13 +31,13 @@ static auto ConstantInstruction(std::string_view name, bits::Chunk &chunk, int o
 
 static auto SimpleInstruction(std::string_view name, int offset)
 {
-    std::cout << name << std::endl;
+    std::cout << name << '\n';
     return ++offset;
 }
 
 auto DisassembleInstruction(bits::Chunk &chunk, int offset) -> int
 {
-    std::cout << std::endl << std::format("{:0>4d} ", offset);
+    std::cout << '\n' << std::format("{:0>4d} ", offset);
 
     if (offset > 0 && chunk.m_lines[offset - 1])
     {
@@ -67,7 +67,7 @@ auto DisassembleInstruction(bits::Chunk &chunk, int offset) -> int
     case OpCode::OpReturn:
         return SimpleInstruction("OP_RETURN", offset);
     default:
-        std::cout << "Unknown opcode " << static_cast<uint8_t>(instruction) << std::endl;
+        std::cout << "Unknown opcode " << static_cast<uint8_t>(instruction) << '\n';
         return ++offset;
     }
 }

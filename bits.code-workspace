@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"cmake.autoSelectActiveFolder": false,
+		"cmake.configureOnOpen": true,
+		"cmake.generator": "Ninja Multi-Config",
+		"cmake.exportCompileCommandsFile": true,
+		"files.associations": {
+			"array": "cpp",
+			"chrono": "cpp",
+			"deque": "cpp",
+			"iterator": "cpp",
+			"list": "cpp",
+			"vector": "cpp",
+			"xhash": "cpp",
+			"xtree": "cpp",
+			"format": "cpp",
+			"forward_list": "cpp",
+			"initializer_list": "cpp",
+			"xstring": "cpp",
+			"xutility": "cpp"
+		}
+	}
+}

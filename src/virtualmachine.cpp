@@ -1,6 +1,8 @@
 #include "virtualmachine.hpp"
+
 #include "chunk.hpp"
 #include "common.hpp"
+#include "compiler.hpp"
 #include "debug.hpp"
 #include <algorithm>
 #include <iostream>
@@ -110,16 +112,14 @@ auto VirtualMachine::GetVM() -> VirtualMachine &
 
 void VirtualMachine::ResetStack()
 {
-    VM.m_stackTop = VM.m_stack.begin();
+    //! @todo Check if dereference of iterator is working/safe
+    VM.m_stackTop = &(*VM.m_stack.begin());
 }
 
-auto VirtualMachine::Interpret(Chunk *chunk) -> InterpretResult
+auto VirtualMachine::Interpret(std::string_view source) -> InterpretResult
 {
-    std::cout << "Interpretting...\n";
-    m_chunk = chunk;
-    m_ip = &m_chunk->m_byteCode.front();
-
-    return Run();
+    Compile(source);
+    return InterpretResult::InterpretOk;
 }
 
 void VirtualMachine::Push(Value value)

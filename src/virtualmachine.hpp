@@ -2,8 +2,9 @@
 
 #include "chunk.hpp"
 #include "value.hpp"
+
 #include <array>
-#include <memory>
+#include <string_view>
 
 namespace bits
 {
@@ -21,13 +22,13 @@ class VirtualMachine
 {
   public:
     VirtualMachine();
-    VirtualMachine(const VirtualMachine &) = default;
+    VirtualMachine(VirtualMachine const &) = default;
     VirtualMachine(VirtualMachine &&) = delete;
-    auto operator=(const VirtualMachine &) -> VirtualMachine & = default;
+    auto operator=(VirtualMachine const &) -> VirtualMachine & = default;
     auto operator=(VirtualMachine &&) -> VirtualMachine & = delete;
     ~VirtualMachine() = default;
 
-    auto Interpret(Chunk *chunk) -> InterpretResult;
+    auto Interpret(std::string_view source) -> InterpretResult;
 
     static auto GetVM() -> VirtualMachine &;
     static void ResetStack();

@@ -1,7 +1,7 @@
 CompileFlags:
   Add: [-Wunused-parameter]
-  CompilationDatabase: build/
-  Compiler: clang++
+  CompilationDatabase: build/linux
+  Compiler: clang++-17
 
 Diagnostics:
   UnusedIncludes: Strict
